@@ -194,11 +194,14 @@ function removeLastOccurrences(str, value) {
  *   sumOfCodes('') => 0
  *   sumOfCodes() => 0
  */
-function sumOfCodes(str = 0) {
-  if (str === 0 || '') {
+function sumOfCodes(str) {
+  const arrayZero = ['', null, NaN, undefined];
+  if (arrayZero.includes(str)) {
     return 0;
   }
-  return str.split('').reduce((accum, elem) => accum + elem.charCodeAt(0), 0);
+  return String(str)
+    .split('')
+    .reduce((accum, elem) => accum + elem.charCodeAt(0), 0);
 }
 
 /**
